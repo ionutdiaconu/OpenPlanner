@@ -1,11 +1,14 @@
-test5
-
-<div class="layout">
-    <div class="navigator">
-      <ul>
-        <li *ngFor="let task of tasks">
-          {{task}}
-        </li>
-      </ul>
-    </div>
-  </div>
+<div style="margin-top: 2rem; margin-left: 2rem; margin-right: 2rem;">
+  Tasks:
+  <mat-grid-list cols="3" >
+    <mat-grid-tile>
+      <app-task-todo> </app-task-todo>
+    </mat-grid-tile>
+    <mat-grid-tile> 
+      <app-task-in-progress> </app-task-in-progress>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <app-task-complete></app-task-complete>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

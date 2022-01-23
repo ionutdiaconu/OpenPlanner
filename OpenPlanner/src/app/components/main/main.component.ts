@@ -1,6 +1,5 @@
 
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { TasksService } from '../../services/tasks.service';
 
 @Component({
