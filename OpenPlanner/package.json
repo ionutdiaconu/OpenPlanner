@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "electron/dist/main.js",
   "author": "ionut diaconu",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "scripts": {
     "ng": "ng",
     "build-angular": "ng build --base-href ./ --output-path=electron/dist",
