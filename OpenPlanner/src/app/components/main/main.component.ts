@@ -1,5 +1,6 @@
 
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { TasksService } from '../../services/tasks.service';
 
 @Component({
@@ -9,8 +10,8 @@ import { TasksService } from '../../services/tasks.service';
 })
 export class MainComponent implements OnInit {
 
-  tasks: string[] = [];
   directory: string[] = [];
+  tasks: string[] = [] ;
 
   constructor(private tasksService: TasksService, private cdr: ChangeDetectorRef) { }
 

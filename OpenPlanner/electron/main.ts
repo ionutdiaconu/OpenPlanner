@@ -44,16 +44,18 @@ app.on('window-all-closed', () => {
   }
 });
 
-function getImages() {
+function getTasks() {
   const cwd = process.cwd();
-  fs.readdir('.', {withFileTypes: true}, (err, files) => {
-      if (!err) {
-          const re = /(?:\.([^.]+))?$/;
-          const images = files
-            .map(file => `file://${cwd}/${file.name}`);
-          win!.webContents.send("getImagesResponse", images);
-      }
-  });
+  // fs.readdir('.', {withFileTypes: true}, (err, files) => {
+  //     if (!err) {
+  //         const re = /(?:\.([^.]+))?$/;
+  //         const images = files
+  //           .map(file => `file://${cwd}/${file.name}`);
+  //         win!.webContents.send("getTasksResponse", images);
+  //     }
+  // });
+
+  win!.webContents.send("getTasksResponse", ['task 1', 'task2','task3']);
 }
 
 function isRoot() {
@@ -76,6 +78,6 @@ function getDirectory() {
 
 ipcMain.on("navigateDirectory", (event, path) => {
   process.chdir(path);
-  getImages();
+  getTasks();
   getDirectory();
 });

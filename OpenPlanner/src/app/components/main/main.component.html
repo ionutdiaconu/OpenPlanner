@@ -3,14 +3,9 @@ test5
 <div class="layout">
     <div class="navigator">
       <ul>
-        <li *ngFor="let dir of directory">
-          <a (click)="navigateDirectory(dir)">{{dir}}</a>
+        <li *ngFor="let task of tasks">
+          {{task}}
         </li>
       </ul>
-    </div>
-    <div class="thumbnails">
-      <div *ngFor="let task of tasks" class="image">
-        {{task}}
-      </div>
     </div>
   </div>

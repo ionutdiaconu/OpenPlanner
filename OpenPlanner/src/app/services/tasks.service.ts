@@ -12,7 +12,7 @@ export class TasksService {
   directory$ = new BehaviorSubject<string[]>([]);
 
   constructor() {
-    electron.ipcRenderer.on('getImagesResponse', (event: any, _tasks: string[]) => {
+    electron.ipcRenderer.on('getTasksResponse', (event: any, _tasks: string[]) => {
 
       event;
       this.tasks$.next(_tasks);
