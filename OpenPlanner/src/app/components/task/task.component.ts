@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Task } from 'src/app/shared/Category';
 
 @Component({
   selector: 'app-task',
@@ -7,11 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TaskComponent implements OnInit {
 
-  @Input() task!:string
-
+  @Input() task!:Task
+  @Input() categoryId!: string;
+  
   constructor() { }
 
   ngOnInit(): void {
+    console.log(`categoryId: ${this.categoryId}`)
   }
 
 }

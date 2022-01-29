@@ -6,7 +6,7 @@ import * as fs from "fs";
 let win: BrowserWindow | null;
 
 function createWindow() {
-  win = new BrowserWindow({ width: 800, height: 600 ,
+  win = new BrowserWindow({ width: 1600, height: 1200 ,
     webPreferences: {
     nodeIntegration: true,
     contextIsolation: false
@@ -20,7 +20,7 @@ function createWindow() {
     })
   );
 
-  //win.webContents.openDevTools();
+  win.webContents.openDevTools();
 
   win.on("closed", () => {
     win = null;

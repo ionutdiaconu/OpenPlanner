@@ -1,8 +1,16 @@
 
-<mat-card>
-<mat-card-title> {{task}}</mat-card-title>
+<mat-card [ngClass]="{'todoTask': categoryId==='todo','inProgressTask': categoryId==='inprogress','completedTask': categoryId==='done'}">
+    <mat-card-title> {{task.title}}</mat-card-title>
     <mat-card-subtitle>...</mat-card-subtitle>
     <div class="navigator">
-        todo task description
+        {{task.description}}
     </div>
+    <mat-card-actions>
+        <button mat-mini-fab color="accent" aria-label="edit">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-mini-fab color="accent" aria-label="delete">
+            <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
 </mat-card>

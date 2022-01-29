@@ -1,14 +1,36 @@
-<div style="margin-top: 2rem; margin-left: 2rem; margin-right: 2rem;">
-  Tasks:
-  <mat-grid-list cols="3" >
-    <mat-grid-tile>
-      <app-task-todo> </app-task-todo>
-    </mat-grid-tile>
-    <mat-grid-tile> 
-      <app-task-in-progress> </app-task-in-progress>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <app-task-complete></app-task-complete>
-    </mat-grid-tile>
-  </mat-grid-list>
+<div class="board" 
+    cdkDropList 
+    [cdkDropListData]="categories" 
+    (cdkDropListDropped)="onCategoyDrop($event)" 
+    cdkDropListOrientation="horizontal">
+
+    <div class="card-list mat-elevation-z1" *ngFor="let category of categories">
+
+      <h2 cdkDragHandle class="mat-h2">
+        {{category.title}}
+
+        <button *ngIf="category.id==='todo'" mat-icon-button [matMenuTriggerFor]="menu" aria-label="todo menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="addTodoTask()">
+            <mat-icon>add</mat-icon>
+            <span>add task</span>
+          </button>
+        </mat-menu>
+
+      </h2>
+
+      <div class="card-list-content" 
+        cdkDropList [id]="category.id" 
+        [cdkDropListData]="category.tasks"
+        [cdkDropListConnectedTo]="categoryIds" 
+        (cdkDropListDropped)="onTaskDrop($event)">
+
+          <mat-card *ngFor="let task of category.tasks" cdkDrag>
+            <app-task [task]=task [categoryId]=category.id> </app-task>
+          </mat-card>
+    </div>
+  </div>
+
 </div>

@@ -5,14 +5,14 @@
   "author": "ionut diaconu",
   "license": "GPL-3.0",
   "scripts": {
-    "ng": "ng",
+    "build-all": "npm run build-angular && npm run build-electron",
     "build-angular": "ng build --base-href ./ --output-path=electron/dist",
     "build-electron": "tsc --p electron && electron electron/dist/main.js",
-    "build-all": "npm run build-angular && npm run build-electron",
     "start": "electron-forge start",
     "test": "ng test",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "ng": "ng"
   },
   "private": true,
   "dependencies": {
