@@ -8,7 +8,6 @@
 
       <h2 cdkDragHandle class="mat-h2">
         {{category.title}}
-
         <button *ngIf="category.id==='todo'" mat-icon-button [matMenuTriggerFor]="menu" aria-label="todo menu">
           <mat-icon>more_vert</mat-icon>
         </button>
@@ -18,7 +17,6 @@
             <span>add task</span>
           </button>
         </mat-menu>
-
       </h2>
 
       <div class="card-list-content" 
@@ -26,9 +24,12 @@
         [cdkDropListData]="category.tasks"
         [cdkDropListConnectedTo]="categoryIds" 
         (cdkDropListDropped)="onTaskDrop($event)">
-
           <mat-card *ngFor="let task of category.tasks" cdkDrag>
-            <app-task [task]=task [categoryId]=category.id> </app-task>
+            <app-task 
+              [task]=task 
+              [categoryId]=category.id 
+              [tasks]="category.tasks"
+              (mousedown)="$event.stopPropagation()"> </app-task>
           </mat-card>
     </div>
   </div>

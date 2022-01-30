@@ -13,13 +13,16 @@ import { TasksService } from '../../services/tasks.service';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
+
+
+
   categories: Category[] = [
     {
       title: 'TODO',
       id: 'todo',
       tasks: [
         {
-          id: 'task1',
+          id: '1',
           title: 'task1 title',
           description: 'My first task',
         },
@@ -30,7 +33,7 @@ export class MainComponent implements OnInit {
       id: 'inprogress',
       tasks: [
         {
-          id: 'task2',
+          id: '2',
           title: 'task2 title',
           description: 'My second task',
         },
@@ -41,7 +44,7 @@ export class MainComponent implements OnInit {
       id: 'done',
       tasks: [
         {
-          id: 'task3',
+          id: '3',
           title: 'task3 title',
           description: 'My 3rd task',
         },
@@ -107,4 +110,6 @@ export class MainComponent implements OnInit {
 
     console.log(`tasks len:  ${todoCategory?.tasks.length}`);
   }
+
+
 }

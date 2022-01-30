@@ -1,15 +1,21 @@
-
 <mat-card [ngClass]="{'todoTask': categoryId==='todo','inProgressTask': categoryId==='inprogress','completedTask': categoryId==='done'}">
     <mat-card-title> {{task.title}}</mat-card-title>
     <mat-card-subtitle>...</mat-card-subtitle>
-    <div class="navigator">
-        {{task.description}}
+    <div mat-dialog-content>
+        <mat-form-field style="width:100%;" appearance="fill">
+            <textarea #taskDescription rows="3" matInput [readonly] = "!isTaskDescriptionEditable()">{{task.description}}</textarea>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions align="end">
+        <button *ngIf="isTaskDescriptionEditable()" mat-mini-fab color="accent" aria-label="commit" (click)="commit()">
+            <mat-icon>check_circle_outline</mat-icon>
+        </button>
     </div>
     <mat-card-actions>
-        <button mat-mini-fab color="accent" aria-label="edit">
-            <mat-icon>edit</mat-icon>
+        <button mat-mini-fab color="accent" aria-label="edit" (click)="toggleEditable()">
+            <mat-icon>{{getEditableIcon()}}</mat-icon>
         </button>
-        <button mat-mini-fab color="accent" aria-label="delete">
+        <button mat-mini-fab color="accent" aria-label="delete" (click)="deleteTask()">
             <mat-icon>delete</mat-icon>
         </button>
       </mat-card-actions>
