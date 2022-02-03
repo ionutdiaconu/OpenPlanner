@@ -1,4 +1,4 @@
-<mat-card [ngClass]="{'todoTask': categoryId==='todo','inProgressTask': categoryId==='inprogress','completedTask': categoryId==='done'}">
+<mat-card>
     <mat-card-title> {{task.title}}</mat-card-title>
     <mat-card-subtitle>...</mat-card-subtitle>
     <div mat-dialog-content>
@@ -11,6 +11,7 @@
             <mat-icon>check_circle_outline</mat-icon>
         </button>
     </div>
+    <mat-divider inset></mat-divider>
     <mat-card-actions>
         <button mat-mini-fab color="accent" aria-label="edit" (click)="toggleEditable()">
             <mat-icon>{{getEditableIcon()}}</mat-icon>

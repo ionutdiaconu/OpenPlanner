@@ -24,7 +24,7 @@
         [cdkDropListData]="category.tasks"
         [cdkDropListConnectedTo]="categoryIds" 
         (cdkDropListDropped)="onTaskDrop($event)">
-          <mat-card *ngFor="let task of category.tasks" cdkDrag>
+          <mat-card *ngFor="let task of category.tasks" cdkDrag [ngClass]="{'todoTask': category.id==='todo','inProgressTask': category.id==='inprogress','completedTask': category.id==='done'}" class="taskContainer"> 
             <app-task 
               [task]=task 
               [categoryId]=category.id 
